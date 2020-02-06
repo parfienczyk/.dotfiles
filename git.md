@@ -16,5 +16,10 @@ Edit file `vim ~/.gitconfig`
   ctags = !.git/hooks/ctags
   commits-per-user = shortlog -s -n
   fr = "!f() { git fetch && git rebase origin/"$1"; }; f"
-  cleanup = "!f() { git fetch -p && for branch in `git branch -vv --no-color | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done; }; f"
+  cleanup = "!f() { git fetch -p && for branch in `git branch -vv --no-color | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done; }; f"  
+```
+
+Remove branches no remote
+```
+git fetch -p && for branch in `git branch -vv --no-color | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
 ```
